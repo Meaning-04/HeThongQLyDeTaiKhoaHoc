@@ -1,21 +1,20 @@
 namespace Models.Models
 {
+    public enum LoaiSanPham_III
+    {
+        BangSangChe,
+        GiaiPhapHuuIch,
+        BaiBao
+    }
+
     public class ChiTietSanPham_DangIII
     {
-        public int MaBaiBao { get; set; }
+        public int MaSanPham_III { get; set; }
         public int MaDeTai { get; set; }
-        public string? TieuDe { get; set; }
-        public string? TacGia { get; set; }
-        public string? TenTapChi { get; set; }
-        public string? ISSN { get; set; }
-        public int? Nam { get; set; }
-        public int? So { get; set; }
-        public string? Trang { get; set; }
-        public string? DOI { get; set; }
-        public string? LoaiBaiBao { get; set; }
-        public string? TrangThai { get; set; }
-        public DateTime? NgayXuatBan { get; set; }
-        public string? TomTat { get; set; }
+        public string TenSanPham_III { get; set; } = string.Empty;
+        public LoaiSanPham_III LoaiSanPham_III { get; set; } = LoaiSanPham_III.BangSangChe;
+        public string? NoiCongBo { get; set; }
+        public byte[]? file_SanPham_III { get; set; }
 
         // Navigation properties
         public virtual DeTai DeTai { get; set; } = null!;

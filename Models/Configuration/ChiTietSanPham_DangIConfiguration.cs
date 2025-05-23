@@ -10,45 +10,26 @@ namespace Models.Configuration
         {
             builder.ToTable("ChiTietSanPham_DangI");
 
-            builder.HasKey(e => e.MaSanPham);
+            builder.HasKey(e => e.MaSanPham_I);
 
-            builder.Property(e => e.MaSanPham)
+            builder.Property(e => e.MaSanPham_I)
                 .ValueGeneratedOnAdd()
-                .HasColumnName("MaSanPham");
+                .HasColumnName("MaSanPham_I");
 
             builder.Property(e => e.MaDeTai)
                 .HasColumnName("MaDeTai");
 
-            builder.Property(e => e.TenSanPham)
-                .HasColumnType("VARCHAR(500)")
-                .HasColumnName("TenSanPham");
-
-            builder.Property(e => e.MoTa)
-                .HasColumnType("TEXT")
-                .HasColumnName("MoTa");
-
-            builder.Property(e => e.DonViTinh)
-                .HasColumnType("VARCHAR(50)")
-                .HasColumnName("DonViTinh");
-
-            builder.Property(e => e.SoLuong)
-                .HasColumnType("INT")
-                .HasColumnName("SoLuong");
-
-            builder.Property(e => e.GiaTri)
-                .HasColumnType("DECIMAL(18,2)")
-                .HasColumnName("GiaTri");
-
-            builder.Property(e => e.NgayHoanThanh)
-                .HasColumnType("DATE")
-                .HasColumnName("NgayHoanThanh");
-
-            builder.Property(e => e.TrangThai)
-                .HasColumnType("VARCHAR(100)")
-                .HasColumnName("TrangThai");
-
             builder.Property(e => e.MaDonViHC)
                 .HasColumnName("MaDonViHC");
+
+            builder.Property(e => e.TenSanPham_I)
+                .HasColumnType("TEXT")
+                .HasColumnName("TenSanPham_I")
+                .IsRequired();
+
+            builder.Property(e => e.file_SanPham_I)
+                .HasColumnType("VARBINARY(MAX)")
+                .HasColumnName("file_SanPham_I");
 
             // Configure relationships
             builder.HasOne(e => e.DeTai)
@@ -59,11 +40,11 @@ namespace Models.Configuration
             builder.HasOne(e => e.DonViHanhChinh)
                 .WithMany(e => e.ChiTietSanPham_DangI)
                 .HasForeignKey(e => e.MaDonViHC)
-                .OnDelete(DeleteBehavior.SetNull);
+                .OnDelete(DeleteBehavior.Restrict);
 
             builder.HasMany(e => e.DacTinhKyThuat)
                 .WithOne(e => e.ChiTietSanPham_DangI)
-                .HasForeignKey(e => e.MaSanPham)
+                .HasForeignKey(e => e.MaSanPham_I)
                 .OnDelete(DeleteBehavior.Cascade);
         }
     }

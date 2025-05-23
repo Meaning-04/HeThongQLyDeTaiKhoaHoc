@@ -10,35 +10,35 @@ namespace Models.Configuration
         {
             builder.ToTable("DacTinhKyThuat");
 
-            builder.HasKey(e => e.MaDacTinh);
+            builder.HasKey(e => e.MaDacTinhKyThuat);
 
-            builder.Property(e => e.MaDacTinh)
+            builder.Property(e => e.MaDacTinhKyThuat)
                 .ValueGeneratedOnAdd()
-                .HasColumnName("MaDacTinh");
+                .HasColumnName("MaDacTinhKyThuat");
 
-            builder.Property(e => e.MaSanPham)
-                .HasColumnName("MaSanPham");
+            builder.Property(e => e.MaSanPham_I)
+                .HasColumnName("MaSanPham_I");
 
-            builder.Property(e => e.TenDacTinh)
+            builder.Property(e => e.ThongSo)
                 .HasColumnType("VARCHAR(255)")
-                .HasColumnName("TenDacTinh");
+                .HasColumnName("ThongSo");
+
+            builder.Property(e => e.DonViDo)
+                .HasColumnType("VARCHAR(50)")
+                .HasColumnName("DonViDo");
 
             builder.Property(e => e.GiaTri)
-                .HasColumnType("VARCHAR(255)")
+                .HasColumnType("NUMERIC(10,6)")
                 .HasColumnName("GiaTri");
 
-            builder.Property(e => e.DonVi)
-                .HasColumnType("VARCHAR(50)")
-                .HasColumnName("DonVi");
-
-            builder.Property(e => e.MoTa)
+            builder.Property(e => e.ChiChu)
                 .HasColumnType("TEXT")
-                .HasColumnName("MoTa");
+                .HasColumnName("ChiChu");
 
             // Configure relationships
             builder.HasOne(e => e.ChiTietSanPham_DangI)
                 .WithMany(e => e.DacTinhKyThuat)
-                .HasForeignKey(e => e.MaSanPham)
+                .HasForeignKey(e => e.MaSanPham_I)
                 .OnDelete(DeleteBehavior.Cascade);
         }
     }
