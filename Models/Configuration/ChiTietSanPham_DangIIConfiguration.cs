@@ -10,42 +10,29 @@ namespace Models.Configuration
         {
             builder.ToTable("ChiTietSanPham_DangII");
 
-            builder.HasKey(e => e.MaBaoCao);
+            builder.HasKey(e => e.MaSanPham_II);
 
-            builder.Property(e => e.MaBaoCao)
+            builder.Property(e => e.MaSanPham_II)
                 .ValueGeneratedOnAdd()
-                .HasColumnName("MaBaoCao");
+                .HasColumnName("MaSanPham_II");
 
             builder.Property(e => e.MaDeTai)
                 .HasColumnName("MaDeTai");
 
-            builder.Property(e => e.TenBaoCao)
-                .HasColumnType("VARCHAR(500)")
-                .HasColumnName("TenBaoCao");
-
-            builder.Property(e => e.LoaiBaoCao)
-                .HasColumnType("VARCHAR(100)")
-                .HasColumnName("LoaiBaoCao");
-
-            builder.Property(e => e.MoTa)
+            builder.Property(e => e.TenSanPham_II)
                 .HasColumnType("TEXT")
-                .HasColumnName("MoTa");
+                .HasColumnName("TenSanPham_II")
+                .IsRequired();
 
-            builder.Property(e => e.NgayHoanThanh)
-                .HasColumnType("DATE")
-                .HasColumnName("NgayHoanThanh");
+            builder.Property(e => e.LoaiSanPham_II)
+                .HasConversion<string>()
+                .HasColumnType("VARCHAR(50)")
+                .HasColumnName("LoaiSanPham_II")
+                .HasDefaultValue(LoaiSanPham_II.BaoCao);
 
-            builder.Property(e => e.TrangThai)
-                .HasColumnType("VARCHAR(100)")
-                .HasColumnName("TrangThai");
-
-            builder.Property(e => e.FileBaoCao)
+            builder.Property(e => e.file_SanPham_II)
                 .HasColumnType("VARBINARY(MAX)")
-                .HasColumnName("FileBaoCao");
-
-            builder.Property(e => e.TomTatNoiDung)
-                .HasColumnType("TEXT")
-                .HasColumnName("TomTatNoiDung");
+                .HasColumnName("file_SanPham_II");
 
             // Configure relationships
             builder.HasOne(e => e.DeTai)

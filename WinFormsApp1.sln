@@ -3,9 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.12.35707.178
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WinFormsApp1", "WinFormsApp1\WinFormsApp1.csproj", "{5801BFD6-0AE2-4819-89D6-E94E8B1A55C7}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HeThongQLyDeTaiKhoaHoc", "WinFormsApp1\HeThongQLyDeTaiKhoaHoc.csproj", "{5801BFD6-0AE2-4819-89D6-E94E8B1A55C7}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Models", "Models\Models.csproj", "{386D04DB-7186-4AF7-A960-3744A337B1BE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DbHelper", "DbHelper\DbHelper.csproj", "{B0A05948-93E8-4A51-B718-40E7420C79FF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{386D04DB-7186-4AF7-A960-3744A337B1BE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{386D04DB-7186-4AF7-A960-3744A337B1BE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{386D04DB-7186-4AF7-A960-3744A337B1BE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B0A05948-93E8-4A51-B718-40E7420C79FF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B0A05948-93E8-4A51-B718-40E7420C79FF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B0A05948-93E8-4A51-B718-40E7420C79FF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B0A05948-93E8-4A51-B718-40E7420C79FF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

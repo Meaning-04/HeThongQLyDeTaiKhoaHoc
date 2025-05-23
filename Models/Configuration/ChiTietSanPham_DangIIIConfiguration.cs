@@ -10,62 +10,33 @@ namespace Models.Configuration
         {
             builder.ToTable("ChiTietSanPham_DangIII");
 
-            builder.HasKey(e => e.MaBaiBao);
+            builder.HasKey(e => e.MaSanPham_III);
 
-            builder.Property(e => e.MaBaiBao)
+            builder.Property(e => e.MaSanPham_III)
                 .ValueGeneratedOnAdd()
-                .HasColumnName("MaBaiBao");
+                .HasColumnName("MaSanPham_III");
 
             builder.Property(e => e.MaDeTai)
                 .HasColumnName("MaDeTai");
 
-            builder.Property(e => e.TieuDe)
-                .HasColumnType("VARCHAR(500)")
-                .HasColumnName("TieuDe");
-
-            builder.Property(e => e.TacGia)
-                .HasColumnType("VARCHAR(500)")
-                .HasColumnName("TacGia");
-
-            builder.Property(e => e.TenTapChi)
-                .HasColumnType("VARCHAR(255)")
-                .HasColumnName("TenTapChi");
-
-            builder.Property(e => e.ISSN)
-                .HasColumnType("VARCHAR(20)")
-                .HasColumnName("ISSN");
-
-            builder.Property(e => e.Nam)
-                .HasColumnType("INT")
-                .HasColumnName("Nam");
-
-            builder.Property(e => e.So)
-                .HasColumnType("INT")
-                .HasColumnName("So");
-
-            builder.Property(e => e.Trang)
-                .HasColumnType("VARCHAR(50)")
-                .HasColumnName("Trang");
-
-            builder.Property(e => e.DOI)
-                .HasColumnType("VARCHAR(255)")
-                .HasColumnName("DOI");
-
-            builder.Property(e => e.LoaiBaiBao)
-                .HasColumnType("VARCHAR(100)")
-                .HasColumnName("LoaiBaiBao");
-
-            builder.Property(e => e.TrangThai)
-                .HasColumnType("VARCHAR(100)")
-                .HasColumnName("TrangThai");
-
-            builder.Property(e => e.NgayXuatBan)
-                .HasColumnType("DATE")
-                .HasColumnName("NgayXuatBan");
-
-            builder.Property(e => e.TomTat)
+            builder.Property(e => e.TenSanPham_III)
                 .HasColumnType("TEXT")
-                .HasColumnName("TomTat");
+                .HasColumnName("TenSanPham_III")
+                .IsRequired();
+
+            builder.Property(e => e.LoaiSanPham_III)
+                .HasConversion<string>()
+                .HasColumnType("VARCHAR(50)")
+                .HasColumnName("LoaiSanPham_III")
+                .HasDefaultValue(LoaiSanPham_III.BangSangChe);
+
+            builder.Property(e => e.NoiCongBo)
+                .HasColumnType("VARCHAR(500)")
+                .HasColumnName("NoiCongBo");
+
+            builder.Property(e => e.file_SanPham_III)
+                .HasColumnType("VARBINARY(MAX)")
+                .HasColumnName("file_SanPham_III");
 
             // Configure relationships
             builder.HasOne(e => e.DeTai)

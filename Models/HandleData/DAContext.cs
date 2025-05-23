@@ -1,8 +1,8 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using Models.Models;
 using Models.Configuration;
+using Models.Models;
 
-namespace Models
+namespace Models.HandleData
 {
     public class DAContext : DbContext
     {
@@ -20,9 +20,23 @@ namespace Models
         public DbSet<ChiTietSanPham_DangIII> ChiTietSanPham_DangIII { get; set; }
         public DbSet<KinhPhi> KinhPhi { get; set; }
 
+        // Default constructor for existing code compatibility
+        public DAContext() : base()
+        {
+        }
+
+        // Constructor with options for dependency injection and service usage
+        public DAContext(DbContextOptions<DAContext> options) : base(options)
+        {
+        }
+
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer("Server=.\\sqlexpress;Database=Tung_DB;Trusted_Connection=True;TrustServerCertificate=True");
+            // Only configure if no options are provided (for backward compatibility)
+            if (!optionsBuilder.IsConfigured)
+            {
+                optionsBuilder.UseSqlServer("Server=.\\sqlexpress;Database=Tung_DB;Trusted_Connection=True;TrustServerCertificate=True");
+            }
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
