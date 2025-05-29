@@ -42,4 +42,11 @@
     </None>
   </ItemGroup>
 
+  <!-- Exclude specific .resx files to avoid resource compilation conflicts -->
+  <ItemGroup>
+    <EmbeddedResource Remove="frmQuanLyCanBo.Export.resx" />
+    <EmbeddedResource Remove="frmQuanLyCanBo.PDF.resx" />
+    <EmbeddedResource Remove="frmQuanLyCanBo.Word.resx" />
+  </ItemGroup>
+
 </Project>
