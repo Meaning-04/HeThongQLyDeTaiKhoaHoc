@@ -35,7 +35,7 @@ namespace Models.HandleData
             // Only configure if no options are provided (for backward compatibility)
             if (!optionsBuilder.IsConfigured)
             {
-                optionsBuilder.UseSqlServer("Server=.\\sqlexpress;Database=Tung_DB;Trusted_Connection=True;TrustServerCertificate=True");
+                optionsBuilder.UseSqlServer("Server=.;Database=Tung_DB;Trusted_Connection=True;TrustServerCertificate=True");
             }
         }
 

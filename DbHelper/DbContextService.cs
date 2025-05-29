@@ -131,7 +131,7 @@ namespace DbHelper
         public DefaultConnectionStringProvider()
         {
             // Use default connection string
-            _connectionString = "Server=.\\sqlexpress;Database=Tung_DB;Trusted_Connection=True;TrustServerCertificate=True";
+            _connectionString = "Server=.;Database=Tung_DB;Trusted_Connection=True;TrustServerCertificate=True";
         }
 
         public DefaultConnectionStringProvider(string connectionString)
